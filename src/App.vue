@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+
+    <div class="page-header">
+      <h1>Kanban Board</h1>
+      <p class="lead">example Kanban Board, written in Vue.js</p>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -10,3 +14,18 @@ export default {
   name: 'app'
 }
 </script>
+
+<style>
+.page-header h1 {
+    font-weight: 300;
+}
+.card {
+    margin-bottom: 10px;
+}
+.card:last-child {
+    margin-bottom: 25px;
+}
+.card-block {
+    padding: 15px;
+}
+</style>
