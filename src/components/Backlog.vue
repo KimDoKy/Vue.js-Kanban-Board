@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import NewItemForm from './NewItemForm';
+import NewItemForm from './NewItemForm'
 
 export default {
   name: 'Backlog',
   components: {
-    'new-item': NewItemForm,
-  },
-};
+    'new-item': NewItemForm
+  }
+}
 </script>

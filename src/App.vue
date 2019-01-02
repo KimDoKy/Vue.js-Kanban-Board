@@ -1,10 +1,10 @@
 <template>
   <div id="app">
 
-    <div class="page-header">
-      <h1>Kanban Board</h1>
-      <p class="lead">example Kanban Board, written in Vue.js</p>
-    </div>
+  <div class="page-header">
+    <h1>Kanban Board</h1>
+    <p class="lead">example Kanban board, written in Vue.js</p>
+  </div>
     <router-view/>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<script>
 .page-header h1 {
     font-weight: 300;
 }
