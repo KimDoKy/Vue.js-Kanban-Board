@@ -24,17 +24,14 @@ export default {
   name: 'TaskLane',
   props: ['items', 'title', 'id'],
   components: {
-    item: TaskLaneItem
+    item: TaskLaneItem,
+    draggable: Draggable
   },
   computed: {
     itemCount () {
       if (!this.items) return ''
       if (this.items.length === 1) return '1 task'
       return `${this.items.length} tasks`
-    },
-    components: {
-      item: TaskLaneItem,
-      draggable: Draggable
     },
     draggables: {
       get () {
