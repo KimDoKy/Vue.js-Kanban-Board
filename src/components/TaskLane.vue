@@ -30,7 +30,7 @@ export default {
     itemCount () {
       if (!this.items) return ''
       if (this.items.length === 1) return '1 task'
-      return '{$this.items.length} tasks'
+      return `${this.items.length} tasks`
     },
     components: {
       item: TaskLaneItem,
