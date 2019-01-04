@@ -9,7 +9,7 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      'msg': '여기서부터 시작'
     }
   }
 }
