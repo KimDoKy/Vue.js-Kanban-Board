@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    {{msg}}
+    여기서부터 시작합니다.
+    <router-view></router-view>
   </div>
 </template>
 
