@@ -35,9 +35,9 @@ export default {
     }
   },
   computed: {
-    isAddBoard() {
-      return this.$store.state.isAddBoard
-    }
+    ...mapState([
+      'isAddBoard'
+    ])
   },
   created() {
     this.fetchData()
