@@ -24,23 +24,31 @@ export default {
   data() {
     return {
       loading: false,
-      boards: '',
+      boards: [],
       error: ''
     }
   },
   created() {
     this.fetchData()
   },
+  updated() {
+    this.$refs.boardItem.forEach(el => {
+      el.style.backgroundColor = el.dataset.bgcolor
+    })
+  },
   methods: {
     fetchData() {
-      this.lading = true
+      this.loading = true
       board.fetch()
         .then(data => {
-          this.boards = data
+          this.boards = data.list
         })
-        .finally(() => {
+        .finally(_=> {
           this.loading = false
         })
+    },
+    addBoard() {
+      console.log('addBoard()')
     }
   }
 }
