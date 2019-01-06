@@ -16,12 +16,12 @@ export default {
   },
   watch: {
     '$route': {
-      handler: 'fatchData',
+      handler: 'fetchData',
       immediate: true
     }
   },
   methods: {
-    fatchData() {
+    fetchData() {
       this.loading = true
       setTimeout(() => {
         this.cid =this.$route.params.cid

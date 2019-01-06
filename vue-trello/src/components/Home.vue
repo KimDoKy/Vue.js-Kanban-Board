@@ -29,15 +29,16 @@ export default {
     return {
       loading: false,
       boards: '',
+      error: ''
     }
   },
   created() {
-    this.fatchData()
+    this.fetchData()
   },
   methods: {
-    fatchData() {
+    fetchData() {
       this.lading = true
-      board.fatch()
+      board.fetch()
         .then(data => {
           this.boards = data
         })
