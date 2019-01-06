@@ -21,17 +21,24 @@
 <script>
 import {board} from '../api'
 import AddBoard from './AddBoard.vue'
+import {mapState} from 'vuex'
 
 export default {
   components: {
-    AddBoard
+    ...mapState([
+      'isAddBoard'
+    ])
   },
   data() {
     return {
       loading: false,
       boards: [],
       error: '',
-      isAddBoard: false
+    }
+  },
+  computed: {
+    isAddBoard() {
+      return this.$store.state.isAddBoard
     }
   },
   created() {
