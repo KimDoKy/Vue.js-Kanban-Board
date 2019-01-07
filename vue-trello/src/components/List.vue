@@ -11,7 +11,7 @@
     </div>
     <div v-else>
       <a class="add-card-btn" href="" @click.prevent="isAddCard=true">
-        &plus: Add a card..
+        &plus; Add a card..
       </a>
     </div>
   </div>
