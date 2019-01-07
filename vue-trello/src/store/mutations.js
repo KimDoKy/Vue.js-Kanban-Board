@@ -7,6 +7,14 @@ const mutations = {
   SET_BOARDS (state, boards) {
     state.boards = boards
   },
+  SET_BOARD (state, board) {
+    state.board = board
+  },
+  FETCH_BOARD ({commit}, {id}) {
+    return api.board.fetch(id).then(data => {
+      commit('SET_BOARD', data.item)
+    })
+  },  
   LOGIN (state, token) {
     if (!token) return
     state.token = token
