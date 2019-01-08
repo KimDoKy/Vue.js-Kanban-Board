@@ -11,7 +11,7 @@ const mutations = {
     state.board = board
   },
   SET_CARD(state, card) {
-    state.card = card 
+    state.card = card
   },
   FETCH_BOARD ({commit}, {id}) {
     return api.board.fetch(id).then(data => {
@@ -28,6 +28,10 @@ const mutations = {
     state.token = null
     delete localStorage.token
     setAuthInHeader(null)
+  },
+  SET_THEME(state, color) {
+    state.bodyColor = color || '#ffffff'
+    state.navbarColor = color ? 'rgba(0,0,0,.15)' : '#026aa7'
   }
 }
 
