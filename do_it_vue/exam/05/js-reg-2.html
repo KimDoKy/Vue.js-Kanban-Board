@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Reg</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- {{ var a = 10; }}  // 선언문 사용 불가 -->
+      <!-- {{ if (true) {return 100} }} // 분구 구문 사용 불가 -->
+      {{ true ? 100 : 0 }}  <!-- 삼항 연산자로 표현 가능 -->
+
+      {{ message.split('').reverse().join('') }}
+      {{ reversedMessage }} <!-- 위 방법보다는 JS단에서 계산하여 표시하는 방법 권장 -->
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue.js!'
+        },
+        computed: {
+          reversedMessage: function() {
+            return this.message.split('').reverse().join('');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
