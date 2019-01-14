@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Resource</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="getData">프레임워크 목록 가져오기</button>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          getData: function() {
+            this.$http.get('https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json')
+              .then(function(response) {
+                console.log(response);
+                // 예제대로 진행시 response는 object 타입이라서
+                // JSON.parse의 인자로 문자열로 형변환 후 적용함.
+                var temp = JSON.stringify(response.data);
+                console.log(JSON.parse(temp));
+                console.log(response.data);
+              });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
