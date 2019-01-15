@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>method</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseMsg">문자열 역순</button>
+    </div>
+
+    <script src="../../js/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue!!!'
+        },
+        methods: {
+          reverseMsg: function() {
+            this.message = this.message.split('').reverse().join('');
+            return this.message;
+          }
+        }
+      });
+
+    </script>
+
+  </body>
+</html>
