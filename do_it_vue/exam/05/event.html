@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue template - Event</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="clickBtn">클릭</button>
+      <button v-on:click="clickBtn2(10)">두번째 클릭</button>
+      <button v-on:click="eventLog">이벤트 로그</button>
+    </div>
+
+    <script src="../../js/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          clickBtn: function() {
+            alert('clicked');
+          },
+          clickBtn2: function(num) {
+            alert('clicked ' + num + ' times');
+          },
+          eventLog: function(event) {
+            console.log(event);
+          }
+        }
+      });
+    </script>
+
+  </body>
+</html>
