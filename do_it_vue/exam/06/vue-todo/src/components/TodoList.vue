@@ -4,7 +4,7 @@
       <li v-for="todoItem in todoItems">
         <i class="checkBtn fa fa-check" aria-hidden="true"></i>
         {{ todoItem }}
-        <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
+        <span class="removeBtn" type="button" @click="removeTodo">
           <i class="fa fa-trash-o" aria-hidden="true"></i>
         </span>
       </li>
@@ -24,6 +24,11 @@ export default {
       for (var i = 0; i < localStorage.length; i++) {
         this.todoItems.push(localStorage.key(i));
       }
+    }
+  },
+  methods: {
+    removeTodo() {
+      console.log('clicked');
     }
   }
 };
@@ -53,7 +58,7 @@ export default {
     color: #62acde;
     margin-right: 5px;
   }
-  
+
   .removeBtn {
     margin-left: auto;
     color: #de4343;
