@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput></TodoInput>
-    <TodoList></TodoList>
+    <TodoInput v-on:add Todo="addTodo"></TodoInput>
+    <TodoList v-bind:propsdata="todoItems"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -14,6 +14,16 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 export default {
+  data() {
+    return {
+      todoItems: []
+    }
+  },
+  methods: {
+    addTodo() {
+      // 로컬 스토러지에 데이터를 추가하는 로직
+    }
+  },
   components: {
     TodoHeader: TodoHeader,
     TodoInput: TodoInput,
