@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput v-on:add Todo="addTodo"></TodoInput>
+    <TodoInput v-on:addTodo="addTodo"></TodoInput>
     <TodoList v-bind:propsdata="todoItems"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
@@ -20,8 +20,9 @@ export default {
     }
   },
   methods: {
-    addTodo() {
-      // 로컬 스토러지에 데이터를 추가하는 로직
+    addTodo(todoItem) {
+      localStorage.setItem(todoItem, todoItem);
+      this.todoItems.push(todoItem);
     }
   },
   components: {
