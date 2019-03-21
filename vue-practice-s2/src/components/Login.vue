@@ -18,11 +18,43 @@
           :disabled="invalidForm">Log In</button>
       </form>
       <p class="error" v-if="error">{{error}}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import {auth, setAuthInHeader} from '../api'
+
 export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      error: '',
+      rPath: ''
+    }
+  },
+  computed: {
+    invalidForm() {
+      return !this.email || !this.password
+    }
+  },
+  created() {
+    this.rPath = this.$route.query.rPath || '/'
+  },
+  methods: {
+    onSubmit() {
+      auth.login(this.email, this.password)
+        .then(data => {
+          localStorage.setItem('token', data.accessToken)
+          setAuthInHeader(data.accessToken)
+          this.$router.push(this.rPath)
+        })
+        .catch(err => {
+          this.error = err.data.error
+        })
+    }
+  }
 }
 </script>
 
@@ -33,4 +65,5 @@ export default {
 }
 .error {
   color: #f00;
-}</style>
+}
+</style>
