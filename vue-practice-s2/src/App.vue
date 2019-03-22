@@ -35,7 +35,7 @@ html, body, #app {
 .btn {
   border-radius: 3px;
   padding: 6px 8px;
-  background-color: #e2e4e6;
+  background-color: #acadad;
   border: none;
   display: inline-block;
   color: #fff;

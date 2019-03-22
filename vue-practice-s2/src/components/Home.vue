@@ -14,25 +14,29 @@
         </a>
       </div>
     </div>
+    <AddBoard v-if="isAddBoard" @close="isAddBoard=false" @submit="onAddBoard"/>
   </div>
 </template>
 
 <script>
 import {board} from '../api'
+import AddBoard from './AddBoard.vue'
 
 export default {
+  components: {AddBoard},
   data() {
     return {
       loading: false,
       boards: [],
-      error: ''
+      error: '',
+      isAddBoard: false
     }
   },
   created() {
     this.fetchData()
   },
   updated() {
-    this.$refs.baordItem.forEach(el => {
+    this.$refs.boardItem.forEach(el => {
       el.style.backgroundColor = el.dataset.bgcolor
     })
   },
@@ -48,8 +52,11 @@ export default {
         })
     },
     addBoard() {
-      console.log('addBoard()')
-
+      this.isAddBoard = true
+    },
+    onAddBoard(title) {
+      board.create(title)
+        .then(() => this.fetchData())
     }
   }
 }
@@ -100,5 +107,6 @@ export default {
   width: inherit;
   color: #888;
   font-weight: 700;
+  background-color: #cdcdce;
 }
 </style>
