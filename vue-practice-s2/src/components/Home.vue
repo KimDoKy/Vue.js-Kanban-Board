@@ -14,23 +14,30 @@
         </a>
       </div>
     </div>
-    <AddBoard v-if="isAddBoard" @close="isAddBoard=false" @submit="onAddBoard"/>
+    <AddBoard v-if="isAddBoard" @submit="onAddBoard"/>
   </div>
 </template>
 
 <script>
 import {board} from '../api'
 import AddBoard from './AddBoard.vue'
+import {mapState} from 'vuex'
 
 export default {
-  components: {AddBoard},
+  components: {
+    AddBoard
+  },
   data() {
     return {
       loading: false,
       boards: [],
-      error: '',
-      isAddBoard: false
+      error: ''
     }
+  },
+  computed: {
+    ...mapState([
+      'isAddBoard'
+    ])
   },
   created() {
     this.fetchData()
