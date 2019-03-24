@@ -61,9 +61,8 @@ export default {
     ...mapMutations([
       'SET_IS_ADD_BOARD'
     ]),
-    onAddBoard(title) {
-      board.create(title)
-        .then(() => this.fetchData())
+    onAddBoard() {
+      this.fetchData()
     }
   }
 }
